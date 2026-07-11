@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import logo from "../../img/apple-touch-icon.png";
+import logo from "../img/apple-touch-icon.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
