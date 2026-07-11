@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import logo from "../img/apple-touch-icon.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -64,7 +63,7 @@ export default function Header() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
               <img
-                src={logo}
+                src="/img/apple-touch-icon.png"
                 alt="Baku is Calling"
                 className="w-10 h-10 rounded-lg"
               />

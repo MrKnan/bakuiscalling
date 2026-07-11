@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { Mail, MapPin, Phone } from 'lucide-react'
-import logo from "../img/apple-touch-icon.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -14,7 +13,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
               <img
-                src={logo}
+                src="/img/apple-touch-icon.png"
                 alt="Baku is Calling"
                 className="w-12 h-12 rounded-lg"
               />

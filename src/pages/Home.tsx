@@ -42,7 +42,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10" />
         <img
-          src="src/img/Blog/bulvar.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="/img/Blog/bulvar.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Azerbaijan landscape"
           className="w-full h-full object-cover"
         />
@@ -279,7 +279,7 @@ function AboutPreviewSection() {
           >
             <div className="relative z-10">
               <img
-                src="src/img/Blog/Carpet.jpg"
+                src="/img/Blog/Carpet.jpg"
                 alt="Azerbaijan culture"
                 className="rounded-2xl shadow-2xl w-full"
               />
