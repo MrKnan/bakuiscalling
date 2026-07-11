@@ -9,23 +9,15 @@ import { stats } from '@/lib/data'
 export default function About() {
   const team = [
     {
-      name: 'Rashad Baghirov',
+      name: 'Kanan',
       role: 'Founder & CEO',
-      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400',
       bio: 'Passionate about sharing Azerbaijani culture with the world.'
     },
     {
-      name: 'Leyla Mammadova',
-      role: 'Head of Operations',
-      image: 'https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&cs=tinysrgb&w=400',
+      name: 'Raul',
+      role: 'Founder & COO',
       bio: 'Ensuring every tour runs smoothly and exceeds expectations.'
     },
-    {
-      name: 'Farid Hasanov',
-      role: 'Lead Tour Guide',
-      image: 'https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Bringing history to life with engaging stories and deep knowledge.'
-    }
   ]
 
   const values = [
