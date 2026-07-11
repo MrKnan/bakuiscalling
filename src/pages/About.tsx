@@ -247,7 +247,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+         <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             {team.map((member, idx) => (
               <motion.div
                 key={member.name}
@@ -255,7 +255,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="text-center"
+                className="w-full sm:w-72 text-center"
               >
                 <div className="relative mb-6 inline-block">
                   <img
