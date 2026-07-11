@@ -11,11 +11,13 @@ export default function About() {
     {
       name: 'Kanan',
       role: 'Founder & CEO',
+      image: 'https://cdn.jsdelivr.net/gh/alohe/memojis/png/upstream_13.png?auto=compress&cs=tinysrgb&w=400',
       bio: 'Passionate about sharing Azerbaijani culture with the world.'
     },
     {
       name: 'Raul',
-      role: 'Founder & COO',
+      role: 'Head of Operations',
+      image: 'https://cdn.jsdelivr.net/gh/alohe/memojis/png/upstream_16.png?auto=compress&cs=tinysrgb&w=400',
       bio: 'Ensuring every tour runs smoothly and exceeds expectations.'
     },
   ]
