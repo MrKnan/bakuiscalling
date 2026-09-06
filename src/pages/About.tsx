@@ -151,7 +151,7 @@ export default function About() {
             >
               <div className="relative z-10">
                 <img
-                  src="https://images.pexels.com/photos/3184413/pexels-photo-3184413.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/img/Blog/tea.jpg?auto=compress&cs=tinysrgb&w=800"
                   alt="Our team"
                   className="rounded-2xl shadow-2xl w-full"
                 />
@@ -314,7 +314,7 @@ export default function About() {
 
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/2977515/pexels-photo-2977515.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/img/Blog/road.jpg?auto=compress&cs=tinysrgb&w=800"
                 alt="Azerbaijan landscape"
                 className="rounded-2xl shadow-2xl w-full"
               />

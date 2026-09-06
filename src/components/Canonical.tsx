@@ -1,42 +1,95 @@
-import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const SITE_URL = 'https://bakuiscalling.com'
-const GA_MEASUREMENT_ID = 'G-V1X23X9XR8'
+const SITE_URL = 'https://bakuiscalling.com';
 
-export default function Canonical() {
-  const { pathname } = useLocation()
+const DEFAULT_TITLE = 'Baku Is Calling | Custom Azerbaijan Tours & Travel';
+const DEFAULT_DESCRIPTION =
+  'Plan your all-inclusive, customized trip to Azerbaijan with Baku Is Calling. Tours, travel tips, and local expertise for an unforgettable Baku experience.';
+
+type RouteMeta = {
+  title: string;
+  description: string;
+};
+
+const ROUTE_META: Record<string, RouteMeta> = {
+  '/': {
+    title: 'Baku Is Calling | Custom Azerbaijan Tours & Travel',
+    description:
+      'Discover Azerbaijan with Baku Is Calling — all-inclusive, customized tours, local guides, and travel planning made easy.',
+  },
+  '/tours': {
+    title: 'Tours in Azerbaijan | Baku Is Calling',
+    description:
+      'Browse our curated Azerbaijan tour packages, from Baku city breaks to countryside adventures, all fully customizable.',
+  },
+  '/about': {
+    title: 'About Us | Baku Is Calling',
+    description:
+      'Learn about Baku Is Calling, our story, our local team, and why travelers trust us to plan their Azerbaijan trip.',
+  },
+  '/blog': {
+    title: 'Travel Blog | Baku Is Calling',
+    description:
+      'Tips, guides, and stories about traveling in Azerbaijan and Baku from the Baku Is Calling team.',
+  },
+  '/contact': {
+    title: 'Contact Us | Baku Is Calling',
+    description:
+      'Get in touch with Baku Is Calling to start planning your customized Azerbaijan trip today.',
+  },
+  '/privacy': {
+    title: 'Privacy Policy | Baku Is Calling',
+    description:
+      'Read the Baku Is Calling privacy policy to understand how we collect, use, and protect your data.',
+  },
+};
+
+function Canonical(): null {
+  const { pathname } = useLocation();
+
+  const normalizedPath: string =
+    pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
+  const meta: RouteMeta = ROUTE_META[normalizedPath] || {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  };
+
+  const title = meta.title || DEFAULT_TITLE;
+  const description = meta.description || DEFAULT_DESCRIPTION;
+  const canonicalUrl = `${SITE_URL}${normalizedPath}`;
 
   useEffect(() => {
-    // Normalise: strip trailing slash except for the homepage
-    const path = pathname !== '/' ? pathname.replace(/\/+$/, '') : '/'
-    const href = `${SITE_URL}${path}`
+    document.title = title;
 
-    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
-    if (!link) {
-      link = document.createElement('link')
-      link.rel = 'canonical'
-      document.head.appendChild(link)
+    let descTag = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (!descTag) {
+      descTag = document.createElement('meta');
+      descTag.setAttribute('name', 'description');
+      document.head.appendChild(descTag);
     }
-    link.href = href
+    descTag.setAttribute('content', description);
 
-    let ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]')
-    if (!ogUrl) {
-      ogUrl = document.createElement('meta')
-      ogUrl.setAttribute('property', 'og:url')
-      document.head.appendChild(ogUrl)
+    let canonicalTag = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonicalTag) {
+      canonicalTag = document.createElement('link');
+      canonicalTag.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalTag);
     }
-    ogUrl.content = href
+    canonicalTag.setAttribute('href', canonicalUrl);
 
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'page_view', {
-        page_location: href,
-        page_path: path,
-        page_title: document.title,
-        send_to: GA_MEASUREMENT_ID,
-      })
-    }
-  }, [pathname])
+    const ogTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', title);
 
-  return null
+    const ogDesc = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', description);
+
+    const ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+  }, [normalizedPath, title, description, canonicalUrl]);
+
+  return null;
 }
+
+export default Canonical;

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block internal build artifacts from being indexed if ever exposed
+Disallow: /assets/*.map
+
+Sitemap: https://bakuiscalling.com/sitemap.xml
