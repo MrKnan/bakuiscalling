@@ -170,7 +170,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50 z-10" />
         <img
-          src="https://images.pexels.com/photos/1684065/pexels-photo-1684065.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="/img/Blog/Oldtownn.jpg"
           alt="Azerbaijan tours"
           className="w-full h-full object-cover"
         />

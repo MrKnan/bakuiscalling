@@ -60,7 +60,7 @@ export default function About() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/70 z-10" />
           <img
-            src="src/img/Blog/bulvar.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/img/Blog/bulvar.jpeg"
             alt="Baku skyline"
             className="w-full h-full object-cover"
           />
