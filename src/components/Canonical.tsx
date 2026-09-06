@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const SITE_URL = 'https://bakuiscalling.com'
+const GA_MEASUREMENT_ID = 'G-V1X23X9XR8'
 
 export default function Canonical() {
   const { pathname } = useLocation()
@@ -26,6 +27,15 @@ export default function Canonical() {
       document.head.appendChild(ogUrl)
     }
     ogUrl.content = href
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_location: href,
+        page_path: path,
+        page_title: document.title,
+        send_to: GA_MEASUREMENT_ID,
+      })
+    }
   }, [pathname])
 
   return null
